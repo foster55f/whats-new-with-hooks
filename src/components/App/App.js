@@ -30,7 +30,7 @@ class App extends Component {
   render() {    
     return (
       <main className="App">
-        <Menu filterAllNews = {this.filterAllNews} hello='world'/>
+        <Menu filterAllNews={this.filterAllNews} hello={[1, 2, 3, 4, 5]}/>
         <NewsContainer articles = {this.state.currentNews}/>
       </main>
     );

@@ -1,8 +1,4 @@
 .menu {
-    display: flex;
-    flex-direction: column;
-    grid-area: menu;
-    margin-left: 5%;
     margin-top: 5%;
 }
 
