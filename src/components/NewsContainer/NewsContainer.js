@@ -15,7 +15,6 @@ const NewsContainer = (props) => {
                 image={article.img}
                 description={article.description}
                 url={article.url}
-         
             />
         )
     })
