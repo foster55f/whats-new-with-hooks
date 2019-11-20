@@ -7,6 +7,7 @@ import health from '../../data/health';
 import science from '../../data/science';
 import technology from '../../data/technology';
 import Menu from './../Menu/Menu'
+import SearchForm from '../SearchForm/SearchForm';
 
 
 
@@ -30,6 +31,7 @@ class App extends Component {
   render() {    
     return (
       <main className="App">
+        <SearchForm/>
         <Menu filterAllNews={this.filterAllNews} hello={[1, 2, 3, 4, 5]}/>
         <NewsContainer articles = {this.state.currentNews}/>
       </main>
