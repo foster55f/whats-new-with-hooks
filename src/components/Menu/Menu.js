@@ -7,9 +7,9 @@ const Menu = (props) => {
         <div className="menu">
             <button onClick={() => { props.filterAllNews('local') }}>Local News </button>
             <button onClick={() => { props.filterAllNews('entertainment') }}>Entertainment</button>
-            <button onClick={() => { props.filterAllNews('local') }}>Local News </button>
-            <button onClick={() => { props.filterAllNews('local') }}>Local News </button>
-            <button onClick={() => {props.filterAllNews('local')}}>Local News </button>
+            <button onClick={() => { props.filterAllNews('science') }}>Science </button>
+            <button onClick={() => { props.filterAllNews('health') }}>Health </button>
+            <button onClick={() => { props.filterAllNews('technology') }}>Technology </button>            
         </div>
     )
 }
