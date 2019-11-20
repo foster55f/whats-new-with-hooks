@@ -1,20 +1,38 @@
 import React, { Component } from 'react';
-import local from '../../data/local';
 import './App.css';
+import local from '../../data/local';
+import NewsContainer from './../NewsContainer/NewsContainer'
+import entertainment from '../../data/entertainment';
+import health from '../../data/health';
+import science from '../../data/science';
+import technology from '../../data/technology';
+import Menu from './../Menu/Menu'
+
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      local
+      "currentNews": local,
+      'data':{local, entertainment,
+        health: health,
+        technology,
+        science,
+      }   
     }
   }
 
-  render () {
+  filterAllNews = (type) => {
+    this.setState({ currentNews:this.state.data[type]})
+  }
+
+  render() {    
     return (
-      <div className="app">
-        YOUR CODE GOES HERE!
-      </div>
+      <main className="App">
+        <Menu filterAllNews={this.filterAllNews} hello={[1, 2, 3, 4, 5]}/>
+        <NewsContainer articles = {this.state.currentNews}/>
+      </main>
     );
   }
 }

@@ -4,10 +4,31 @@
   padding: 0;
 }
 
-.app {
+main {
   display: flex;
+}
+
+.app {
+  /* display: flex; */
+  /* grid-template-areas: 
+  "header header"
+  "menu news"
+  "menu news";
+  grid-template-columns: 10% 90%;
   background: #141527;
   height: 100vh;
   text-align: center;
   width: 100%;
+  color: aliceblue */
 }
+
+/* .header {
+  grid-area: header;
+}
+
+.news-Container {
+  grid-area: news;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr
+} */
+
