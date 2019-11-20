@@ -1,6 +1,13 @@
 import React from 'react';
 import './SearchForm.css';
 
-// SEARCHFORM COMPONENT CODE GOES HERE
+class SearchForm extends Component {
+    constructor() {
+      super();
+      this.state = {
+        
+        }   
+      }
+    }
 
 export default SearchForm;
