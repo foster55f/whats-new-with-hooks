@@ -4,6 +4,10 @@ import './App.css';
 import NewsContainer from './../NewsContainer/NewsContainer'
 import entertainment from '../../data/entertainment';
 import health from '../../data/health';
+import science from '../../data/science';
+import technology from '../../data/technology';
+
+
 
 
 import Menu from './../Menu/Menu'
@@ -16,7 +20,9 @@ class App extends Component {
     this.state = {
       "currentNews": local,
       entertainment,
-      health:health
+      health: health,
+      technology,
+      science  
     }
   }
 
