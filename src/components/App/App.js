@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import local from '../../data/local';
 import NewsContainer from './../NewsContainer/NewsContainer'
-import entertainment from '../../data/entertainment';
-import health from '../../data/health';
-import science from '../../data/science';
-import technology from '../../data/technology';
 import Menu from './../Menu/Menu'
 import SearchForm from '../SearchForm/SearchForm';
 
@@ -16,18 +12,30 @@ class App extends Component {
     super();
     this.state = {
       "currentNews": local,
-      'data':{local, entertainment,
-        health: health,
-        technology,
-        science,
-      }   
+      'data': null
+      // {
+      //   local, entertainment,
+      //   health: health,
+      //   technology,
+      //   science,
+      // }   
     }
   }
-  
 
-  filterAllNews = (type) => {
-    this.setState({ currentNews:this.state.data[type]})
+  componentDidMount() {
+    fetch('https://whats-new-api.herokuapp.com/api/v1/news')
+      .then(response => response.json())
+      .then(data => this.setState({ data }))
+    .catch(err => console.log('error'))
   }
+  
+  selectNews = (data) => {
+    this.setState({currentNews:this.state.data[data]})
+  }
+
+  // filterAllNews = (type) => {
+  //   this.setState({ currentNews:this.state.data[type]})
+  // }
 
   filterSearch = (search) => {
     console.log(search)
@@ -44,7 +52,7 @@ class App extends Component {
       <div className="App">
         <SearchForm search={this.filterSearch} {...this.state.data}/>
         <div className="Menu">
-        <Menu filterAllNews={this.filterAllNews} hello={[1, 2, 3, 4, 5]}/>
+        <Menu filterAllNews={this.filterAllNews} selectNews={this.selectNews}/>
           <NewsContainer articles={this.state.currentNews} />
         </div>
       </div>
