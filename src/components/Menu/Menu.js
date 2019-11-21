@@ -2,14 +2,17 @@ import React from 'react';
 import './Menu.css'
 
 const Menu = (props) => {
-    console.log(props)
+    const filterClick = (event) => {
+    props.selectNews(event.target.className)
+    }
+
     return (
         <div className="menu">
-            <button onClick={() => { props.filterAllNews('local') }}>Local News </button>
-            <button onClick={() => { props.filterAllNews('entertainment') }}>Entertainment</button>
-            <button onClick={() => { props.filterAllNews('science') }}>Science </button>
-            <button onClick={() => { props.filterAllNews('health') }}>Health </button>
-            <button onClick={() => { props.filterAllNews('technology') }}>Technology </button>            
+            <button onClick={filterClick} className='local'>Local News </button>
+            <button onClick={filterClick} className='entertainment'>Entertainment </button>
+            <button onClick={filterClick} className='science'>Science </button>
+            <button onClick={filterClick} className='health'>Health </button>
+            <button onClick={filterClick} className='technology'>Technology </button>          
         </div>
     )
 }
