@@ -1,16 +1,16 @@
 import React from 'react';
 import './NewsArticle.css';
 
-const NewsArticle = (props) => {
+const NewsArticle = ({id, title, image, description, url}) => {
     return (
-        <article className='newsArticle' id={props.id}>
+        <article className='newsArticle' id={id}>
             <div>
-                <img className='img' src={props.image} alt={`of ${props.title}`}/>
+                <img className='img' src={image} alt={`of ${title}`}/>
             </div>
             <div>
-                <h2>{props.title}</h2>
-                <p>{props.description}</p>
-                <a href={props.url}>Article Link</a>
+                <h2>{title}</h2>
+                <p>{description}</p>
+                <a href={url}>Article Link</a>
             </div>
         </article>
     )
