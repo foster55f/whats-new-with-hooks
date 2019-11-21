@@ -7,6 +7,7 @@ import health from '../../data/health';
 import science from '../../data/science';
 import technology from '../../data/technology';
 import Menu from './../Menu/Menu'
+import SearchForm from '../SearchForm/SearchForm';
 
 
 
@@ -22,17 +23,31 @@ class App extends Component {
       }   
     }
   }
+  
 
   filterAllNews = (type) => {
     this.setState({ currentNews:this.state.data[type]})
   }
 
+  filterSearch = (search) => {
+    console.log(search)
+    console.log(this.state.data.local)
+    const searchResults = this.state.data.health.filter(article => {
+      return article.headline.toLowerCase().includes(search.toLowerCase())|| article.description.toLowerCase().includes(search.toLowerCase())
+    })
+    console.log(searchResults)
+    this.setState({ currentNews: searchResults }) 
+  }
+
   render() {    
     return (
-      <main className="App">
+      <div className="App">
+        <SearchForm search={this.filterSearch} {...this.state.data}/>
+        <div className="Menu">
         <Menu filterAllNews={this.filterAllNews} hello={[1, 2, 3, 4, 5]}/>
-        <NewsContainer articles = {this.state.currentNews}/>
-      </main>
+          <NewsContainer articles={this.state.currentNews} />
+        </div>
+      </div>
     );
   }
 }

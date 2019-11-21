@@ -4,22 +4,10 @@
   padding: 0;
 }
 
-main {
+.menu {
   display: flex;
-}
-
-.app {
-  /* display: flex; */
-  /* grid-template-areas: 
-  "header header"
-  "menu news"
-  "menu news";
-  grid-template-columns: 10% 90%;
-  background: #141527;
-  height: 100vh;
   text-align: center;
-  width: 100%;
-  color: aliceblue */
+  width: 100%
 }
 
 /* .header {
