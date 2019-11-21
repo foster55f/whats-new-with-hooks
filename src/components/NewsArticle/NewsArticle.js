@@ -1,12 +1,11 @@
 import React from 'react';
 import './NewsArticle.css';
-import NewsContainer from '../NewsContainer/NewsContainer';
 
 const NewsArticle = (props) => {
     return (
         <article className='newsArticle' id={props.id}>
             <div>
-                <img className='img' src={props.image}/>
+                <img className='img' src={props.image} alt={`of ${props.title}`}/>
             </div>
             <div>
                 <h2>{props.title}</h2>
@@ -16,5 +15,5 @@ const NewsArticle = (props) => {
         </article>
     )
 }
-  
+
 export default NewsArticle;

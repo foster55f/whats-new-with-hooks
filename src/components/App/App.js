@@ -12,7 +12,7 @@ class App extends Component {
     super();
     this.state = {
       "currentNews": local,
-      'data': null  
+      "data": null,
     }
   }
 
@@ -28,7 +28,9 @@ class App extends Component {
   }
 
   filterSearch = (search) => {
-    const searchResults = this.state.data.health.filter(article => {
+    console.log(this.state.currentNews)
+    // this.setState({currentNews:this.state.data[data]})
+    const searchResults = this.state.currentNews.filter(article => {
       return article.headline.toLowerCase().includes(search.toLowerCase())|| article.description.toLowerCase().includes(search.toLowerCase())
     })
     this.setState({ currentNews: searchResults }) 
