@@ -2,23 +2,34 @@ import React, { Component } from 'react';
 import './SearchForm.css';
 
 class SearchForm extends Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.state = {
-        
+        searchField: ''
         }   
+    }
+
+    handleChange = (event) => {
+        this.setState({ searchField: event.target.value })
+    }
+
+    handleSearch = (event) => {
+        event.preventDefault()
+        this.props.search(this.state.searchField.toLowerCase())
+        this.setState({searchField:''})
     }
     render() {
         return (
-          <header>
+            <header>
+                <h1>What's New</h1>
             <input
-              type='text'
-              placeholder='Title'
-              name='title'
-              value={this.state.title}
-              onChange={event => this.handleChange(event)}
+                    type='text'
+                    placeholder='Search'
+                    name='title'
+                    onChange={event => this.handleChange(event)}
+                    value={this.state.searchField}
             />
-            <button onClick={event => this.submitIdea(event)}>Search</button>
+                <button onClick={this.handleSearch}>Search</button>
           </header>
         )
       }

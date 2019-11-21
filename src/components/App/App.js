@@ -28,13 +28,23 @@ class App extends Component {
     this.setState({ currentNews:this.state.data[type]})
   }
 
+  filterSearch = (search) => {
+    console.log(this.state.data['local'])
+    // const searchResults = this.state.currentNews.filter(article => {
+    //   return article.headline.toLowerCase().includes(search.toLowerCase())|| article.description.toLowerCase().includes(search.toLowerCase())
+    //  })
+    // this.setState({currentNews:this.state.data[searchResults]})
+  }
+
   render() {    
     return (
-      <main className="App">
-        <SearchForm/>
+      <div className="App">
+        <SearchForm search={this.filterSearch} {...this.state.data}/>
+        <div className="Menu">
         <Menu filterAllNews={this.filterAllNews} hello={[1, 2, 3, 4, 5]}/>
-        <NewsContainer articles = {this.state.currentNews}/>
-      </main>
+          <NewsContainer articles={this.state.currentNews} />
+        </div>
+      </div>
     );
   }
 }
