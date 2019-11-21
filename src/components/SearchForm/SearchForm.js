@@ -22,15 +22,17 @@ class SearchForm extends Component {
         return (
             <header>
                 <h1>What's New</h1>
-            <input
-                    type='text'
-                    placeholder='Search'
-                    name='title'
-                    onChange={event => this.handleChange(event)}
-                    value={this.state.searchField}
-            />
-                <button onClick={this.handleSearch}>Search</button>
-          </header>
+                <div className='searchContainer'>   
+                    <input
+                        type='text'
+                        placeholder='Search'
+                        name='title'
+                        onChange={event => this.handleChange(event)}
+                        value={this.state.searchField}
+                    />
+                    <button onClick={this.handleSearch} className="searchButton">Search</button>
+                </div>
+            </header>
         )
       }
     

@@ -13,15 +13,37 @@ h1 {
     padding: 0 15px 5px 22px;
 }
 
-input, button {
+input{
+    width: 50%;
+}
+
+input {
+    height: 50px;
     padding:10px;
     width: 50%;
-    transform: translateY(-50px)
+    margin-top: 1%;
+}
+
+.searchButton {
+    width:50%;
+    height: 51px;
 }
 
 button {
     color: black;
     cursor: pointer;
     font-weight: 500px;
-    background-color: yellow
+    background-color: yellow;
+    margin:5px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    width:45%;
+}
+
+.searchContainer{
+    display: flex;
+    width: 45%; 
+    margin: auto;
+    margin-left: 25%
 }
