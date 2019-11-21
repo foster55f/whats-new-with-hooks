@@ -9,4 +9,16 @@ describe('NewsArticle', () => {
 
     expect(wrapper.contains(title)).toEqual(true);
   });
+    
+  it('should match the snapshot with all data passed in correctly', () => {
+    const wrapper = shallow(<NewsArticle
+        title="Bananas"
+        description="B A N A N A S"
+        id={3}
+        image="image"
+        url="foster.com"
+    />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });
