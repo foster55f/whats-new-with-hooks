@@ -23,17 +23,20 @@ class App extends Component {
       }   
     }
   }
+  
 
   filterAllNews = (type) => {
     this.setState({ currentNews:this.state.data[type]})
   }
 
   filterSearch = (search) => {
-    console.log(this.state.data['local'])
-    // const searchResults = this.state.currentNews.filter(article => {
-    //   return article.headline.toLowerCase().includes(search.toLowerCase())|| article.description.toLowerCase().includes(search.toLowerCase())
-    //  })
-    // this.setState({currentNews:this.state.data[searchResults]})
+    console.log(search)
+    console.log(this.state.data.local)
+    const searchResults = this.state.data.health.filter(article => {
+      return article.headline.toLowerCase().includes(search.toLowerCase())|| article.description.toLowerCase().includes(search.toLowerCase())
+    })
+    console.log(searchResults)
+    this.setState({ currentNews: searchResults }) 
   }
 
   render() {    
