@@ -28,8 +28,6 @@ class App extends Component {
   }
 
   filterSearch = (search) => {
-    console.log(this.state.currentNews)
-    // this.setState({currentNews:this.state.data[data]})
     const searchResults = this.state.currentNews.filter(article => {
       return article.headline.toLowerCase().includes(search.toLowerCase())|| article.description.toLowerCase().includes(search.toLowerCase())
     })
