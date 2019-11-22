@@ -4,7 +4,7 @@
 
 This project was a news application giving detailed information about a local, entertainment, and other news.
 
-## Our Goals
+## Goals
 - Improve ability to work with React
 - Implement dry code
 - Implement React testing architecture
