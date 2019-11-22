@@ -4,7 +4,6 @@ import NewsArticle from './../NewsArticle/NewsArticle';
 
 
 const NewsContainer = (props) => {
-    console.log(props)
     const { articles } = props
     const newsArticles = articles.map(article => {
         return (
