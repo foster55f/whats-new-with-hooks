@@ -9,6 +9,11 @@ class SearchForm extends Component {
         }   
     }
 
+    // if ideas === []
+    //     return <p>No Ideas Yet</p>
+    // logic can live anywhere in Component.typically above return
+    
+
     handleChange = (event) => {
         this.setState({ searchField: event.target.value })
     }

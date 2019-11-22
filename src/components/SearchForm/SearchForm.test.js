@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import SearchForm from './SearchForm';
-import { isTSAnyKeyword } from '@babel/types';
 
 describe('SearchForm', () => {
     it('should match the snapshot', () => {
