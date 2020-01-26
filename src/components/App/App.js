@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect} from 'react';
 import './App.css';
 import local from '../../data/local';
 import NewsContainer from './../NewsContainer/NewsContainer'
@@ -7,44 +7,43 @@ import SearchForm from '../SearchForm/SearchForm';
 
 
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      "currentNews": local,
-      "data": null,
-    }
-  }
+const App = () => {
+  const [currentNews, setNewsArticle] = useState('local')
+  const [data] = useState(null)
 
-  componentDidMount() {
-    fetch('https://whats-new-api.herokuapp.com/api/v1/news')
-      .then(response => response.json())
-      .then(data => this.setState({ data }))
-    .catch(err => console.log('error'))
-  }
   
-  selectNews = (data) => {
-    this.setState({currentNews:this.state.data[data]})
+  const selectNews = (data) => {
+    setNewsArticle(data[data]);
+    // this.setState({ currentNews: this.state.data[data] })
   }
 
-  filterSearch = (search) => {
+  const filterSearch = (search) => {
     const searchResults = this.state.currentNews.filter(article => {
-      return article.headline.toLowerCase().includes(search.toLowerCase())|| article.description.toLowerCase().includes(search.toLowerCase())
+      return article.headline.toLowerCase().includes(search.toLowerCase()) || article.description.toLowerCase().includes(search.toLowerCase())
     })
-    this.setState({ currentNews: searchResults }) 
+    this.setState({ currentNews: searchResults })
   }
 
-  render() {    
+  useEffect(() => {
+    fetch('https://whats-new-api.herokuapp.com/api/v1/news')
+    .then(response => response.json())
+      .then(data => {
+      currentNews(data);
+    });
+  }, []);
+
     return (
       <div className="App">
-        <SearchForm search={this.filterSearch} {...this.state.data}/>
+        <SearchForm search={filterSearch} {...data} />
         <div className="Menu">
-        <Menu filterAllNews={this.filterAllNews} selectNews={this.selectNews}/>
-          <NewsContainer articles={this.state.currentNews} />
+          <Menu selectNews={selectNews} />
+          {currentNews.length &&
+            <NewsContainer articles={currentNews} />
+          }
         </div>
       </div>
     );
   }
-}
+
 
 export default App;
